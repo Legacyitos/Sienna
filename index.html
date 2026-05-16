@@ -81,6 +81,16 @@
 
         .message-body::-webkit-scrollbar { display: none; }
 
+        /* Styling for your surprise image */
+        .surprise-image {
+            max-width: 90%;
+            height: auto;
+            border-radius: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 0 0 20px rgba(139, 0, 0, 0.3);
+            margin-top: 30px;
+        }
+
         .falling-item {
             position: absolute;
             top: -50px;
@@ -116,6 +126,11 @@
                 border-radius: 20px;
                 line-height: 1.6;
             }
+            
+            .surprise-image {
+                max-width: 100%;
+                margin-top: 20px;
+            }
         }
     </style>
 </head>
@@ -130,6 +145,9 @@
             <br>
             <br>
              this isnt even close to the amount of yapping you deserve we have shared so many memories even for this short amount of time it has been a month which should be longer but thats not the point and i hope it becomes an even longer time but thats about it from me yapping this isnt even enough to acknowledge how amazing and perfect you are not even close i hope this is a somewhat alright present for you because i didnt know what else to get you anyways i hope you enjoy sienna ive loved every single second of it you make me happy beyond comparison and i couldn't wish for it any other way you are the happiness and brightness in my day you truly make me happy and it honestly hasnt felt like a month because every day with you makes me feel so happy that time passes by so fast you are always so near and dear to me and i hope it stays like that for the eternity of my life because you truly are my brightness i love everything about you i love your eyes they are the most gorgeous eyes ive ever glimpsed at i mean it truly i could stare at them for decades upon decades and never get bored they are truly so majestic baby i really hope our future children have those gorgeous eyes because they are truly a masterpiece not to mention i love your hair even when its not straightened unlike your family who seem to adore it that way i love your hair in any state its so gorgeous i love you so much baby you are the most gorgeous person in the whole world i love the way you always talk to me about our problems so we can fix them together instead of drifting apart i love that so much and i love that you communicate with me so we can deal with everything together and always resolve it i love you for talking to me and i love you for existing you are 
+            <br>
+            <br>
+            <img src="surprise.png" alt="Surprise Photo" class="surprise-image">
         </div>
     </div>
 
@@ -140,7 +158,7 @@
         btn.addEventListener('click', () => {
             btn.style.display = 'none';
             content.style.display = 'flex';
-            setInterval(createFallingItem, 150); // Slightly slowed down spawn rate so mobile processors don't lag
+            setInterval(createFallingItem, 150); 
         });
 
         function createFallingItem() {
@@ -149,7 +167,7 @@
             item.classList.add('falling-item');
             item.innerText = items[Math.floor(Math.random() * items.length)];
             item.style.left = Math.random() * 100 + 'vw';
-            item.style.fontSize = (Math.random() * 20 + 15) + 'px'; // Slightly smaller emojis for mobile layout scaling
+            item.style.fontSize = (Math.random() * 20 + 15) + 'px'; 
             item.style.animationDuration = (Math.random() * 2 + 3) + 's';
             item.style.opacity = Math.random();
             document.body.appendChild(item);
