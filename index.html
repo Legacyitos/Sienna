@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Month</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Georgia', serif;
+            background-color: #050505;
+            overflow: hidden;
+            color: #ffffff;
+        }
+
+        #start-button {
+            padding: 22px 65px;
+            font-size: 26px;
+            font-weight: bold;
+            cursor: pointer;
+            background: linear-gradient(135deg, #8B0001, #E97452);
+            color: #1a1a1a;
+            border: none;
+            border-radius: 100px; 
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            box-shadow: 0 0 30px rgba(139, 0, 0, 0.4);
+            transition: all 0.5s ease;
+            z-index: 100;
+        }
+
+        #start-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 50px rgba(139, 0, 0, 1);
+        }
+
+        #month-content {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            width: 85%;
+            max-height: 90vh;
+            z-index: 10;
+            text-align: center;
+            animation: celebrate 2.5s ease-out forwards;
+        }
+
+        @keyframes celebrate {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        h1 {
+            font-size: 5.5em;
+            background: linear-gradient(to bottom, #fff, #8B0000);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-family: 'Times New Roman', serif;
+        }
+
+        .message-body {
+            font-size: 1.6em;
+            line-height: 1.8;
+            overflow-y: auto;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 40px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            scrollbar-width: none; 
+            max-width: 1100px;
+            -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+        }
+
+        .message-body::-webkit-scrollbar { display: none; }
+
+        .falling-item {
+            position: absolute;
+            top: -50px;
+            z-index: 1;
+            pointer-events: none;
+            animation: fall linear forwards;
+        }
+
+        @keyframes fall {
+            to { transform: translateY(110vh) rotate(720deg); }
+        }
+
+        @media (max-width: 768px) {
+            #start-button {
+                padding: 16px 40px;
+                font-size: 20px;
+                letter-spacing: 2px;
+            }
+
+            #month-content {
+                width: 90%;
+                max-height: 85vh;
+            }
+
+            h1 {
+                font-size: 2.2em; 
+                margin-bottom: 15px;
+            }
+
+            .message-body {
+                font-size: 1.1em; 
+                padding: 20px;  
+                border-radius: 20px;
+                line-height: 1.6;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <button id="start-button">Click to Celebrate</button>
+
+    <div id="month-content">
+        <h1>HAPPY ONE MONTH BABY</h1>
+        <div class="message-body">
+            sienna well first ill just start off by saying youre so kind i just love it you literally do everything in the kindest way possible and i mean it youre so kind to me i cant believe that you could be real how can people be this kind in the world youre literally the most joyful and happy person and its so crazy how brave you are i cant express it enough youre an amazing person and even that is not enough to say youre so caring you literally care for me like im your child  or js husband 😝😝😝 or something that would be weird but yeah i dont know you missing me is just i dont even know i was so shocked but i appreciate you so much youre an amazing and perfect person genuinely you may not think youre smart but youre so smart so intelligent and literally everything im surprised by how smart you are not in a mean way but just in the kindest way possible also i love how communicative you are with me it just brings joy to my heart and youre just so nice to talk to yes you sienna youre so fun to talk to and i feel like i can talk about anything with you without it being boring in the slightest i could probably yap to you the whole day and thats what i love youre such an amazing sienna probably the best one to ever exist  and thats not even a joke i cant express it enough
+            <br>
+            <br>
+             this isnt even close to the amount of yapping you deserve we have shared so many memories even for this short amount of time it has been a month which should be longer but thats not the point and i hope it becomes an even longer time but thats about it from me yapping this isnt even enough to acknowledge how amazing and perfect you are not even close i hope this is a somewhat alright present for you because i didnt know what else to get you anyways i hope you enjoy sienna ive loved every single second of it you make me happy beyond comparison and i couldn't wish for it any other way you are the happiness and brightness in my day you truly make me happy and it honestly hasnt felt like a month because every day with you makes me feel so happy that time passes by so fast you are always so near and dear to me and i hope it stays like that for the eternity of my life because you truly are my brightness i love everything about you i love your eyes they are the most gorgeous eyes ive ever glimpsed at i mean it truly i could stare at them for decades upon decades and never get bored they are truly so majestic baby i really hope our future children have those gorgeous eyes because they are truly a masterpiece not to mention i love your hair even when its not straightened unlike your family who seem to adore it that way i love your hair in any state its so gorgeous i love you so much baby you are the most gorgeous person in the whole world i love the way you always talk to me about our problems so we can fix them together instead of drifting apart i love that so much and i love that you communicate with me so we can deal with everything together and always resolve it i love you for talking to me and i love you for existing you are 
+        </div>
+    </div>
+
+    <script>
+        const btn = document.getElementById('start-button');
+        const content = document.getElementById('month-content');
+
+        btn.addEventListener('click', () => {
+            btn.style.display = 'none';
+            content.style.display = 'flex';
+            setInterval(createFallingItem, 150); // Slightly slowed down spawn rate so mobile processors don't lag
+        });
+
+        function createFallingItem() {
+            const items = ['💗', '💓', '💖', '💝', '💍', '❤️‍🔥', '💘'];
+            const item = document.createElement('div');
+            item.classList.add('falling-item');
+            item.innerText = items[Math.floor(Math.random() * items.length)];
+            item.style.left = Math.random() * 100 + 'vw';
+            item.style.fontSize = (Math.random() * 20 + 15) + 'px'; // Slightly smaller emojis for mobile layout scaling
+            item.style.animationDuration = (Math.random() * 2 + 3) + 's';
+            item.style.opacity = Math.random();
+            document.body.appendChild(item);
+            setTimeout(() => { item.remove(); }, 5000);
+        }
+    </script>
+</body>
+</html>
